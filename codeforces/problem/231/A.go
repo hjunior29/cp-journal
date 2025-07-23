@@ -10,7 +10,7 @@ func main() {
 	var opnions []string
 
 	fmt.Scan(&problems)
-	if problems < 1 || problems > 100 {
+	if problems < 1 || problems > 1000 {
 		fmt.Println("Invalid number of problems")
 		return
 	}
