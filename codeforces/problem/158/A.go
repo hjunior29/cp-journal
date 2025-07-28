@@ -1,49 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var competitors []int
-	var scores []int
+	var n, k int
+	fmt.Scan(&n, &k)
 
-	competitors, err := read(2)
-	if err != nil {
-		panic(err)
+	scores := make([]int, n)
+	for i := range scores {
+		fmt.Scan(&scores[i])
 	}
 
-	n := competitors[0]
-	k := competitors[1]
-
-	scores, err = read(n)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(solve(n, k, scores))
-}
-
-func read(n int) ([]int, error) {
-	in := make([]int, n)
-	for i := range in {
-		_, err := fmt.Scan(&in[i])
-		if err != nil {
-			return in[:i], err
-		}
-	}
-	return in, nil
-}
-
-func solve(n, k int, scores []int) int {
-	passingGrade := scores[k-1]
-	var passed int
+	passing := scores[k-1]
+	count := 0
 
 	for _, s := range scores {
-		if s >= passingGrade && s > 0 {
-			passed++
+		if s >= passing && s > 0 {
+			count++
 		}
 	}
 
-	return passed
+	fmt.Println(count)
 }
 
 // Problem 158A: Next Round
