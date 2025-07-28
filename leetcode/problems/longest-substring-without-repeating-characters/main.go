@@ -32,3 +32,6 @@ func lengthOfLongestSubstring(s string) int {
 
 	return maxLen
 }
+
+// Problem 3: Longest Substring Without Repeating Characters
+// Time: 30m
